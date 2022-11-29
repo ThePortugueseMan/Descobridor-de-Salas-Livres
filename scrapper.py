@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 
+#room is defied by its name and schedule
 class room:
     def __init__(self,name :str):
         self.name = name
@@ -13,7 +14,7 @@ class room:
 
 
     
-
+# Converts "weekdayx" into x :int
 def weekdays_converter (weeknhour):
     conv_weekday = weeknhour.split(" ")[0]
 
@@ -37,14 +38,18 @@ def weekdays_converter (weeknhour):
 
     return conv_weekday
 
+#Converts "hh:mm-hh:mm" to hhmm start and end times 
 def hours_converter (hours):
     start_hour , end_hour = hours.split("-")
     start_hour_int = int(start_hour.replace(':',''))
     end_hour_int = int(end_hour.replace(':',''))
-    #print(str(start_hour_int)+" até "+str(end_hour_int))
 
     return [start_hour_int,end_hour_int]
 
+#Initializes schedule
+#schedule[] is the week day (0=Monday,5=Saturday)
+#schedule[][] is the 30min time slot (0=8:00-8:30;27=21:00-21:30)
+    # 0 means its free, 1 means its occupied
 def ini_schedule():
     _schedule = [[],[],[],[],[],[]]
     div = 27
@@ -55,11 +60,13 @@ def ini_schedule():
             _weekday.append(0)
             i = i+1
     return _schedule
-        
+
+
+#converts a given hour into its corresponding index (0-27)
+#_hour works as starthour
 def index_from_hour (_hour :int):
     i = 0
     first_hour = 800
-    #print("Hour is: "+str(_hour))
 
     while _hour != first_hour:
         first_hour = first_hour + 30
@@ -67,26 +74,23 @@ def index_from_hour (_hour :int):
         if first_hour%100 == 60:
             first_hour = first_hour +40
         i = i+1
-        #print(str(i)+": "+str(first_hour))
-    #print(str(i))
+
     return i
 
-
+#occupies schedule according to weekday and start and end hours
 def add_To_schedule (_room :room, _day, _hours):
-    #print("Add")
     conv_weekday = weekdays_converter(_day)
     conv_hours = hours_converter(_hours)
 
     start_time = index_from_hour(conv_hours[0])
     end_time = index_from_hour(conv_hours[1])-1
 
-    #print_schedule(_room.schedule)
-    #print("Add: Day "+str(conv_weekday)+" - from" + str(start_time)+" to "+str(end_time))
+
     while start_time != end_time+1:
         _room.schedule[conv_weekday][start_time] = 1
         start_time = start_time+1
 
-
+#prints a schedule
 def print_schedule(_schedule):
     i=0
     for _weekday in _schedule:
@@ -96,21 +100,34 @@ def print_schedule(_schedule):
         for hour in _weekday:
             print(str(hour))
 
+def highlight(element):
+  driver = element._parent
+  def apply_style(s):
+     driver.execute_script("arguments[0].setAttribute('style', arguments[1]);",element, s)
+  original_style = element.get_attribute('style')
+  apply_style("background: yellow; border: 2px solid red;")
 
 
 
+#main
 driver = webdriver.Chrome()
 
-rooms_list = ["https://fenix.tecnico.ulisboa.pt/publico/findSpaces.do?spaceID=2448131361679&method=viewSpace&_request_checksum_=74e479d6a0ace5d939df42398cf6cd97f7d6fb71","https://fenix.tecnico.ulisboa.pt/publico/findSpaces.do?spaceID=2448131361680&method=viewSpace&_request_checksum_=0e36f9bdddb51d808dbbbce6a07ecdbd3aa637da","https://fenix.tecnico.ulisboa.pt/publico/findSpaces.do?spaceID=2448131361681&method=viewSpace&_request_checksum_=fbbec68a291a5fbd8630ca894dbbd04b34be368e"]
+rooms_list = ["V1.23","V1.24","V1.25","V1.31","V1.32"]
 rooms = []
 busy_hours = []
-room_number = 0
 
 driver.maximize_window()
 
 for room_it in rooms_list:
-    driver.get(room_it)
+    driver.get("https://fenix.tecnico.ulisboa.pt/publico/findSpaces.do?spaceID=2448131361047&method=viewSpace&_request_checksum_=1d2ff4b392cfcf539414fe8b7eb6e1f960d3d010")
+    
+    xpath_aux = "//*[contains(text(), '{}')]".format(room_it)
+    aux_element = driver.find_element(By.XPATH, xpath_aux)
+    aux_element = aux_element.find_element(By.XPATH, "..")
+    highlight(aux_element)
+    aux_element = aux_element.find_element(By.XPATH, "td[3]/span/a")
 
+    driver.get(aux_element.get_attribute("href"))
     aux_element = driver.find_element(By.LINK_TEXT, "Horário")
     driver.get(aux_element.get_attribute('href'))
 
@@ -119,12 +136,3 @@ for room_it in rooms_list:
 
     for busy_hour in driver.find_elements(By.CLASS_NAME , "period-first-slot"):
         add_To_schedule(room_aux,busy_hour.get_attribute('headers'),busy_hour.get_attribute('title'))
-
-#print_schedule(rooms[0].schedule)
-
-
-    
-#aux_element = driver.find_element(By.CLASS_NAME , "period-first-slot")
-#print(aux_element.get_attribute('title'))
-#print(aux_element.get_attribute('headers'))
-
