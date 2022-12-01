@@ -1,5 +1,6 @@
 import selenium
 import time
+import xml.etree.cElementTree as ET
 from array import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -91,9 +92,10 @@ def add_To_schedule (_room :room, _day, _hours):
         start_time = start_time+1
 
 #prints a schedule
-def print_schedule(_schedule):
+def print_schedule(_room :room):
+    print(_room.name)
     i=0
-    for _weekday in _schedule:
+    for _weekday in _room.schedule:
         print("Day "+str(i))
         i = i+1
 
@@ -107,18 +109,47 @@ def highlight(element):
   original_style = element.get_attribute('style')
   apply_style("background: yellow; border: 2px solid red;")
 
+def writeToXml (_rooms :room):
 
+    list = ET.Element("list")    
+
+    for room in _rooms:
+        #roomName = ET.SubElement(list, room.name)
+        roomName = ET.SubElement(list, "Room", {"Name":room.name})
+        i=0
+        for weekday in room.schedule:
+            i_str = str(i)
+            #day = ET.SubElement(roomName, weekday)
+            day = ET.SubElement(roomName, "WeekDay", {"Number":i_str})
+            i = i+1
+            j=0
+            for hour in weekday:
+                j_str = str(j)
+                #timeSlot = ET.SubElement(day, j)
+                timeSlot = ET.SubElement(day, "TimeSlot", {"Index":j_str})
+                timeSlot.text = str(hour)
+                #occupy_value = ET.SubElement(timeSlot, hour)
+                #occupy_value = ET.SubElement(timeSlot, "Value", {"Occupied":str(hour)})
+                j = j+1
+
+    tree = ET.ElementTree(list)
+    # ET.dump(tree)
+    tree.write("out.xml",encoding="UTF-8",xml_declaration=True)
+
+
+
+        
 
 #main
 driver = webdriver.Chrome()
 
-rooms_list = ["V1.23","V1.24","V1.25","V1.31","V1.32"]
+roomsNames = ["V1.23","V1.24","V1.25","V1.31","V1.32"]
 rooms = []
 busy_hours = []
 
 driver.maximize_window()
 
-for room_it in rooms_list:
+for room_it in roomsNames:
     driver.get("https://fenix.tecnico.ulisboa.pt/publico/findSpaces.do?spaceID=2448131361047&method=viewSpace&_request_checksum_=1d2ff4b392cfcf539414fe8b7eb6e1f960d3d010")
     
     xpath_aux = "//*[contains(text(), '{}')]".format(room_it)
@@ -136,3 +167,6 @@ for room_it in rooms_list:
 
     for busy_hour in driver.find_elements(By.CLASS_NAME , "period-first-slot"):
         add_To_schedule(room_aux,busy_hour.get_attribute('headers'),busy_hour.get_attribute('title'))
+
+    #print_schedule(room_aux)
+    writeToXml(rooms)
