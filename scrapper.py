@@ -131,7 +131,7 @@ for room_it in rooms_list:
     aux_element = driver.find_element(By.LINK_TEXT, "Horário")
     driver.get(aux_element.get_attribute('href'))
 
-    room_aux = room(str(room_number))
+    room_aux = room(str(room_it))
     rooms.append(room_aux)
 
     for busy_hour in driver.find_elements(By.CLASS_NAME , "period-first-slot"):
