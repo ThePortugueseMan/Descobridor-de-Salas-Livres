@@ -1,5 +1,8 @@
-body{
-    margin: 0;
-    background: blue;
-    text-align: center;
+#body{
+    font-family: Verdana;
+    background-color: #7EA3CC;
+}
+
+#schedule{
+    
 }
