@@ -115,7 +115,7 @@ def writeToXml (_rooms :room):
 
     for room in _rooms:
         #roomName = ET.SubElement(list, room.name)
-        roomName = ET.SubElement(list, str(room.name))
+        roomName = ET.SubElement(list, "Room", {"Name: ":room.name})
         i=0
         for weekday in room.schedule:
             
@@ -133,8 +133,7 @@ def writeToXml (_rooms :room):
 
     tree = ET.ElementTree(list)
     # ET.dump(tree)
-    tree.write("out.xml")
-
+    tree.write("out.xml",encoding="UTF-8",xml_declaration=True)
 
 
 
