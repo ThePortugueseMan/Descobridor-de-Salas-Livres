@@ -115,20 +115,21 @@ def writeToXml (_rooms :room):
 
     for room in _rooms:
         #roomName = ET.SubElement(list, room.name)
-        roomName = ET.SubElement(list, "Room", {"Name: ":room.name})
+        roomName = ET.SubElement(list, "Room", {"Name":room.name})
         i=0
         for weekday in room.schedule:
-            
+            i_str = str(i)
             #day = ET.SubElement(roomName, weekday)
-            day = ET.SubElement(roomName, "Day "+str(i))
+            day = ET.SubElement(roomName, "WeekDay", {"Number":i_str})
             i = i+1
             j=0
             for hour in weekday:
+                j_str = str(j)
                 #timeSlot = ET.SubElement(day, j)
-                timeSlot = ET.SubElement(day, str(j))
+                timeSlot = ET.SubElement(day, "TimeSlot", {"Index":j_str})
 
                 #occupy_value = ET.SubElement(timeSlot, hour)
-                occupy_value = ET.SubElement(timeSlot, str(hour))
+                occupy_value = ET.SubElement(timeSlot, "Value", {"Occupied":str(hour)})
                 j = j+1
 
     tree = ET.ElementTree(list)
