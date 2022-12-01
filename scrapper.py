@@ -127,9 +127,9 @@ def writeToXml (_rooms :room):
                 j_str = str(j)
                 #timeSlot = ET.SubElement(day, j)
                 timeSlot = ET.SubElement(day, "TimeSlot", {"Index":j_str})
-
+                timeSlot.text = str(hour)
                 #occupy_value = ET.SubElement(timeSlot, hour)
-                occupy_value = ET.SubElement(timeSlot, "Value", {"Occupied":str(hour)})
+                #occupy_value = ET.SubElement(timeSlot, "Value", {"Occupied":str(hour)})
                 j = j+1
 
     tree = ET.ElementTree(list)
