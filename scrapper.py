@@ -132,7 +132,7 @@ def writeToXml (_rooms :room):
                 j = j+1
 
     tree = ET.ElementTree(list)
-    ET.dump(tree)
+    # ET.dump(tree)
     tree.write("out.xml")
 
 
