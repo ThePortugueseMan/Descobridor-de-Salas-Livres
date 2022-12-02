@@ -23,71 +23,274 @@
         <p align="center">Experimenta agora! Vai ser incriiiiiivel</p>
     </section>
     <section id="schedule">
-        <form>
-            <label for="inicio">Hora de início:</label>
-            <select id="inicio" name="inicio">
-                <option value="07:00">07:00</option>
-                <option value="07:30">07:30</option>
-                <option value="08:00">08:00</option>
-                <option value="08:30">08:30</option>
-                <option value="09:00">09:00</option>
-                <option value="09:30">09:30</option>
-                <option value="10:00">10:00</option>
-                <option value="10:30">10:30</option>
-                <option value="11:00">11:00</option>
-                <option value="11:30">11:30</option>
-                <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-                <option value="14:30">14:30</option>
-                <option value="15:00">15:00</option>
-                <option value="15:30">15:30</option>
-                <option value="16:00">16:00</option>
-                <option value="16:30">16:30</option>
-                <option value="17:00">17:00</option>
-                <option value="17:30">17:30</option>
-                <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
-                <option value="19:00">19:00</option>
-                <option value="19:30">19:30</option>
-                <option value="20:00">20:00</option>
-            </select>
-            <br><br>
-            <label for="fim">Hora de final:</label>
-            <select id="fim" name="fim">
-                <option value="07:00">07:00</option>
-                <option value="07:30">07:30</option>
-                <option value="08:00">08:00</option>
-                <option value="08:30">08:30</option>
-                <option value="09:00">09:00</option>
-                <option value="09:30">09:30</option>
-                <option value="10:00">10:00</option>
-                <option value="10:30">10:30</option>
-                <option value="11:00">11:00</option>
-                <option value="11:30">11:30</option>
-                <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-                <option value="14:30">14:30</option>
-                <option value="15:00">15:00</option>
-                <option value="15:30">15:30</option>
-                <option value="16:00">16:00</option>
-                <option value="16:30">16:30</option>
-                <option value="17:00">17:00</option>
-                <option value="17:30">17:30</option>
-                <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
-                <option value="19:00">19:00</option>
-                <option value="19:30">19:30</option>
-                <option value="20:00">20:00</option>
-            </select>
-            <br><br>
-            <input type="button" value="Ver Salas"
-        </form>
+        <table class="timetable" cellspacing="0" cellpadding="0" width="90%"><tbody><tr><th>Horas/Dias</th>
+            <th colspan="1" width="14%" id="weekday0">
+            Segunda</th>
+            <th colspan="1" width="14%" id="weekday1">
+            Terça</th>
+            <th colspan="1" width="14%" id="weekday2">
+            Quarta</th>
+            <th colspan="1" width="14%" id="weekday3">
+            Quinta</th>
+            <th colspan="1" width="14%" id="weekday4">
+            Sexta</th>
+            <th colspan="1" width="14%" id="weekday5">
+            Sábado</th>
+            </tr><tr>
+            <th class="period-hours" id="hour0">8:00-8:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour1">8:30-9:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #A8FFFF" headers="weekday1 hour1" class="period-first-slot" title="08:30-10:00"><!-- NO_CHECKSUM --><a href="https://www.math.tecnico.ulisboa.pt/~mabreu/CI/">CDI-I</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #AFEEEE" headers="weekday4 hour1" class="period-first-slot" title="08:30-10:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/DEES/2022-2023/1-semestre">DEES</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour2">9:00-9:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #A8FFFF" headers="weekday1 hour2" class="period-middle-slot" title="08:30-10:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #AFEEEE" headers="weekday4 hour2" class="period-middle-slot" title="08:30-10:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour3">9:30-10:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #A8FFFF" headers="weekday1 hour3" class="period-last-slot" title="08:30-10:00">&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour3" class="period-first-slot" title="09:30-11:30"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/MMat/2022-2023/1-semestre">MMat</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #AFEEEE" headers="weekday4 hour3" class="period-last-slot" title="08:30-10:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour4">10:00-10:30</th>
+            <td style="background-color: #87CEFA" headers="weekday0 hour4" class="period-first-slot" title="10:00-11:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/PMRS/2022-2023/1-semestre">PMRS</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td style="background-color: #A8D4FF" headers="weekday1 hour4" class="period-first-slot" title="10:00-11:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/CDI-III-3/2022-2023/1-semestre">CDI-III-3</a>&nbsp;&nbsp;(PB)&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour4" class="period-middle-slot" title="09:30-11:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour5">10:30-11:00</th>
+            <td style="background-color: #87CEFA" headers="weekday0 hour5" class="period-last-slot" title="10:00-11:00">&nbsp;</td>
+            <td style="background-color: #A8D4FF" headers="weekday1 hour5" class="period-last-slot" title="10:00-11:00">&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour5" class="period-middle-slot" title="09:30-11:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #B0C4DE" headers="weekday4 hour5" class="period-first-slot" title="10:30-12:30"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/FCA/2022-2023/1-semestre">FCA</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour6">11:00-11:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #BAEDD3" headers="weekday1 hour6" class="period-first-slot" title="11:00-12:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/CDI-III-5/2022-2023/1-semestre">CDI-III-5</a>&nbsp;&nbsp;(PB)&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour6" class="period-last-slot" title="09:30-11:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #B0C4DE" headers="weekday4 hour6" class="period-middle-slot" title="10:30-12:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour7">11:30-12:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #BAEDD3" headers="weekday1 hour7" class="period-last-slot" title="11:00-12:00">&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour7" class="period-first-slot" title="11:30-13:30"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/MMat/2022-2023/1-semestre">MMat</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #B0C4DE" headers="weekday4 hour7" class="period-middle-slot" title="10:30-12:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour8">12:00-12:30</th>
+            <td style="background-color: #FFF77E" headers="weekday0 hour8" class="period-first-slot" title="12:00-14:00"><span title="Patrícia Nunes
+            RT 1381921">aula extra</span></td>
+            <td style="background-color: #BAEDD3" headers="weekday1 hour8" class="period-first-slot" title="12:00-13:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/CDI-III-5/2022-2023/1-semestre">CDI-III-5</a>&nbsp;&nbsp;(PB)&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour8" class="period-middle-slot" title="11:30-13:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #B0C4DE" headers="weekday4 hour8" class="period-last-slot" title="10:30-12:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour9">12:30-13:00</th>
+            <td style="background-color: #FFF77E" headers="weekday0 hour9" class="period-middle-slot" title="12:00-14:00">&nbsp;</td>
+            <td style="background-color: #BAEDD3" headers="weekday1 hour9" class="period-last-slot" title="12:00-13:00">&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour9" class="period-middle-slot" title="11:30-13:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour10">13:00-13:30</th>
+            <td style="background-color: #FFF77E" headers="weekday0 hour10" class="period-middle-slot" title="12:00-14:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #00FFFF" headers="weekday2 hour10" class="period-last-slot" title="11:30-13:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour11">13:30-14:00</th>
+            <td style="background-color: #FFF77E" headers="weekday0 hour11" class="period-last-slot" title="12:00-14:00">&nbsp;</td>
+            <td style="background-color: #7FFFD4" headers="weekday1 hour11" class="period-first-slot" title="13:30-15:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/EB-I/2022-2023/1-semestre">EB-I</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour12">14:00-14:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #7FFFD4" headers="weekday1 hour12" class="period-middle-slot" title="13:30-15:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday4 hour12" class="period-first-slot" title="14:00-16:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/SElect/2022-2023/1-semestre">SElect</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour13">14:30-15:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #7FFFD4" headers="weekday1 hour13" class="period-last-slot" title="13:30-15:00">&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday2 hour13" class="period-first-slot" title="14:30-16:30"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/SElect/2022-2023/1-semestre">SElect</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday4 hour13" class="period-middle-slot" title="14:00-16:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour14">15:00-15:30</th>
+            <td style="background-color: #40E0D0" headers="weekday0 hour14" class="period-first-slot" title="15:00-17:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/FEN/2022-2023/1-semestre">FEN</a>&nbsp;&nbsp;(T)&nbsp;</td>
+            <td style="background-color: #40E0D0" headers="weekday1 hour14" class="period-first-slot" title="15:00-16:30"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/FEN/2022-2023/1-semestre">FEN</a>&nbsp;&nbsp;(TP)&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday2 hour14" class="period-middle-slot" title="14:30-16:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday4 hour14" class="period-middle-slot" title="14:00-16:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour15">15:30-16:00</th>
+            <td style="background-color: #40E0D0" headers="weekday0 hour15" class="period-middle-slot" title="15:00-17:00">&nbsp;</td>
+            <td style="background-color: #40E0D0" headers="weekday1 hour15" class="period-middle-slot" title="15:00-16:30">&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday2 hour15" class="period-middle-slot" title="14:30-16:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday4 hour15" class="period-last-slot" title="14:00-16:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour16">16:00-16:30</th>
+            <td style="background-color: #40E0D0" headers="weekday0 hour16" class="period-middle-slot" title="15:00-17:00">&nbsp;</td>
+            <td style="background-color: #40E0D0" headers="weekday1 hour16" class="period-last-slot" title="15:00-16:30">&nbsp;</td>
+            <td style="background-color: #51FFA9" headers="weekday2 hour16" class="period-last-slot" title="14:30-16:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour17">16:30-17:00</th>
+            <td style="background-color: #40E0D0" headers="weekday0 hour17" class="period-last-slot" title="15:00-17:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #D8BAED" headers="weekday2 hour17" class="period-first-slot" title="16:30-17:30"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/CDI-III-4/2022-2023/1-semestre">CDI-III-4</a>&nbsp;&nbsp;(PB)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour18">17:00-17:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #D8BAED" headers="weekday2 hour18" class="period-last-slot" title="16:30-17:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #ADFF2F" headers="weekday4 hour18" class="period-first-slot" title="17:00-19:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/IArq/2022-2023/1-semestre">IArq</a>&nbsp;&nbsp;(PB)&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour19">17:30-18:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday1 hour19" class="period-first-slot" title="17:30-18:30"><span title="..">Reposição de aula</span></td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #ADFF2F" headers="weekday4 hour19" class="period-middle-slot" title="17:00-19:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour20">18:00-18:30</th>
+            <td style="background-color: #32CD32" headers="weekday0 hour20" class="period-first-slot" title="18:00-19:00"><!-- NO_CHECKSUM --><a href="https://fenix.tecnico.ulisboa.pt/disciplinas/AL-5/2022-2023/1-semestre">AL-5</a>&nbsp;&nbsp;(PB)&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday1 hour20" class="period-last-slot" title="17:30-18:30">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday2 hour20" class="period-first-slot" title="18:00-21:00"><span title="RT 1384318">Reunião - CPMEC </span></td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #ADFF2F" headers="weekday4 hour20" class="period-middle-slot" title="17:00-19:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour21">18:30-19:00</th>
+            <td style="background-color: #32CD32" headers="weekday0 hour21" class="period-last-slot" title="18:00-19:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday2 hour21" class="period-middle-slot" title="18:00-21:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #ADFF2F" headers="weekday4 hour21" class="period-last-slot" title="17:00-19:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour22">19:00-19:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday2 hour22" class="period-middle-slot" title="18:00-21:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour23">19:30-20:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday1 hour23" class="period-first-slot" title="19:30-21:30"><span title="Fátima Coelho Rodrigues
+            RT 1381743">JUNITEC-reunião</span></td>
+            <td style="background-color: #FFF77E" headers="weekday2 hour23" class="period-middle-slot" title="18:00-21:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour24">20:00-20:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday1 hour24" class="period-middle-slot" title="19:30-21:30">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday2 hour24" class="period-middle-slot" title="18:00-21:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour25">20:30-21:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday1 hour25" class="period-middle-slot" title="19:30-21:30">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday2 hour25" class="period-last-slot" title="18:00-21:00">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour26">21:00-21:30</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td style="background-color: #FFF77E" headers="weekday1 hour26" class="period-last-slot" title="19:30-21:30">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            <tr>
+            <th class="period-hours" id="hour27">21:30-22:00</th>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            <td class="period-empty-slot">&nbsp;</td>
+            </tr>
+            </tbody></table>
     </section>
 </body>
 <footer>  
