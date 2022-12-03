@@ -23,6 +23,7 @@
         <p align="center">Experimenta agora! Vai ser incriiiiiivel</p>
     </section>
     <section id="schedule">
+        <div id="l-space"></div>
         <table class="timetable" cellspacing="0" cellpadding="0" width="90%"><tbody>
             <tr>
             <th>Horas/Dias</th>
@@ -293,8 +294,13 @@
             </tbody>
         </table>
         <br>
-        <div><input type="button" value="Submeter" id="submeter"></div>
-        <br><br><br>
+        <div id="r-space"></div>
+    </section>
+    <section>
+        <br>
+        <!--<div><input type="button" value="Submeter" id="submeter"></div>-->
+        <button>Submeter</button>
+        <br><br><br><br>
     </section>
 
 <footer>  
@@ -319,17 +325,22 @@
         margin:0;
         font-family: Verdana;
         background-color: #7EA3CC;
+        text-align: center;
 }
     body::after {
-    content: '';
-    display: block;
-    height: 50px; /* Set same as footer's height */
+        content: '';
+        display: block;
+        height: 50px; /* Set same as footer's height */
 }
-
+    #l-space {
+        flex: 1
+}
+    #r-space {
+        flex: 1
+}
     #schedule{
         text-align: center;
-        position: relative;
-        left: 5%;
+        display: flex;
 }
     .timetable th {
         font-size: 11px;
@@ -375,6 +386,10 @@
     }
     input[type='button']:active {
         background-color: #87CEFA;
+    }
+    button{
+        text-align: center;
+        margin: 0 auto;
     }
     #submeter {
         height: 30px;
