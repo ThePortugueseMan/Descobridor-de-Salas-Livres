@@ -11,7 +11,7 @@
 </header>
 <body id="body">
     <section id="intro">
-        <br>
+    <br>        
         <p align="center">Tens um furo no horário e precisas de estudar?</p>
         
         <p align="center">As Salas de Estudo de Civil estimulam demasiado o teu olfacto?</p>
@@ -41,12 +41,12 @@
             Sábado</th>
             </tr><tr>
             <th class="period-hours" id="hour0">8:00-8:30</th>
-            <td class="period-empty-slot"> <input type="button" id="weekday0-hour0"> </td>
-            <td class="period-empty-slot"> <input type="button" id="weekday1-hour0"> </td>
-            <td class="period-empty-slot"> <input type="button" id="weekday2-hour0"> </td>
-            <td class="period-empty-slot"> <input type="button" id="weekday3-hour0"> </td>
-            <td class="period-empty-slot"> <input type="button" id="weekday4-hour0"> </td>
-            <td class="period-empty-slot"> <input type="button" id="weekday5-hour0"> </td>
+            <td class="period-empty-slot"> <input type="button" id="weekday0-hour0" class="btn btn-1"> </td>
+            <td class="period-empty-slot"> <input type="button" id="weekday1-hour0" class="btn btn-1"> </td>
+            <td class="period-empty-slot"> <input type="button" id="weekday2-hour0" class="btn btn-1"> </td>
+            <td class="period-empty-slot"> <input type="button" id="weekday3-hour0" class="btn btn-1"> </td>
+            <td class="period-empty-slot"> <input type="button" id="weekday4-hour0" class="btn btn-1"> </td>
+            <td class="period-empty-slot"> <input type="button" id="weekday5-hour0" class="btn btn-1"> </td>
             </tr>
             <tr>
             <th class="period-hours" id="hour1">8:30-9:00</th>
@@ -307,6 +307,7 @@
     <p align="center">&copy; Brought to you by ThePortugueseMan</p>
     <p align="center">Powered by Fifi-OnTheMoon</p>
 </footer>
+<script src='function.js'></script>
 </body>
 </html>
 
@@ -368,7 +369,8 @@
         border-left-style: solid;
         border-right-style: solid;
         background-color: #E1E1E1;
-}
+        padding:0;
+    }
     input[type='button'] {
         background-color: #E1E1E1;
         width: 100%;
@@ -423,3 +425,11 @@
         font-size: small;
     }
 </style>
+
+<script>
+    $(document).ready(function() {
+    $('.btn').click(function() { 
+        $(this).toggleClass('active');
+    });
+})
+</script>
