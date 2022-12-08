@@ -6,10 +6,17 @@
     <title>Descobridor de Salas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<header>
+<!--<header>
     <h1 align="center">Descobridor de Salas Livres</h1>
-</header>
+</header>-->
 <body id="body">
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/e/ed/IST_Logo.png" alt="logo">
+        <div class="header-text">
+            <h1 align="center">Descobridor de Salas Livres</h1>
+        </div>
+        <div id="spacer"></div>
+    </div>
     <section id="intro">
     <br>        
         <p align="center">Tens um furo no horário e precisas de estudar?</p>
@@ -282,7 +289,7 @@
             <td class="period-empty-slot"> <input type="checkbox" id="weekday4-hour26"><label for="weekday4-hour26">  </label> </td>
             <td class="period-empty-slot"> <input type="checkbox" id="weekday5-hour26"><label for="weekday5-hour26">  </label> </td>
             </tr>
-            <tr>
+            <tr id="ultima-linha">
             <th class="period-hours" id="hour27">21:30-22:00</th>
             <td class="period-empty-slot"> <input type="checkbox" id="weekday0-hour27"><label for="weekday0-hour27">  </label> </td>
             <td class="period-empty-slot"> <input type="checkbox" id="weekday1-hour27"><label for="weekday1-hour27">  </label> </td>
@@ -307,60 +314,45 @@
     <p align="center">&copy; Brought to you by ThePortugueseMan</p>
     <p align="center">Powered by Fifi-OnTheMoon</p>
 </footer>
-<!--<script src='function.js'></script>-->
-<script>
-    /*window.onload=funtion() {
-        let btn = document.getElementsByClassName("btn btn-1");
-        function toggle(el,classname) {
-            if(el.classList.contains(classname)) {
-                el.classlist.remove(classname)
-            }
-        }
-        btn.addEventListener("click", (e) => {
-            toogle(e.target, 'ativar')
-        });
-    }*/
-    function changeClass() {
-        document.getElementById("weekday0-hour0").classList.add('ativo');
 
-        document.getElementById("weekday0-hour0").classList.remove('ativo');
-
-        if ( document.getElementById("weekday0-hour0").classList.contains('ativo') )
-
-        document.getElementById("weekday0-hour0").classList.toggle('ativo');
-    };
-    window.onload=function() {
-        document.getElementByID("weekday0-hour0").addEventListener('click', changeClass);
-    };
-    btn.onclick=ativar
-
-
-    </script>
 </body>
 </html>
 
 <style>
-    header{
+    .header{
         background-color: white;
-        box-sizing: border-box;
-        height: 80px;
+        padding-bottom: 1px;
         padding-top: 1px;
+        box-shadow: 0px 3px 3px -3px gray;
+        z-index=1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    section{
-        background-color: #009DE0;
+    img, #spacer {
+        width: 80px;
     }
+    h1{
+        color: #2E3242;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .header-text {
+        text-align: center;
+    }
+
     #body{
         position: relative;
         margin:0;
         font-family: Verdana;
-        background-color: #009DE0;
+        background-color: #EEF2F5;
         text-align: center;
+        color: #2E3242;
 }
     body::after {
         content: '';
         display: block;
         height: 50px; /* Set same as footer's height */
-}
+    }
     #l-space {
         flex: 1
 }
@@ -401,6 +393,10 @@
         background-color: #E1E1E1;
         padding:-5px;
 }
+    .timetable tr:nth-child(29){
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+}
     input[type='checkbox']:not(:checked), [type="checkbox"]:checked  {
     opacity: 0.01;
     position: absolute;
@@ -408,18 +404,35 @@
     label {
     text-align:center;
     position:relative;
-    display:block;
     padding:50px;
     margin:-5px;
 }
     input[type='checkbox']:checked + label{
-    background-color: #003F91;
+    background-color: #009DE0;
     display: block;
+    padding: 0px;
+    margin:0;
+    height: 20px;
 }
     button{
         text-align: center;
         margin: 0 auto;
+        height: 40px;
+        width: 100px;
+        border-radius: 5px;
+        color: white;
+        background-color: #009DE0;
+        font-weight: bold;
+        border-color: transparent;
 }
+    button:hover{
+        border-width: 2px;
+        border-style:solid;
+        border-color:#009DE0;
+        background-color: white;
+        color: #009DE0;
+        transition-duration: 0.3s;
+    }
     #submeter {
         height: 30px;
         width: 90px;
@@ -442,10 +455,11 @@
     footer{
         position: absolute;
         bottom: 0;
+        box-sizing: border-box;
         width: 100%;
-        height: 50px;
+        height: 90px;
         padding: 1rem;
-        background-color: #efefef;
+        background-color: white;
         text-align: center;
         font-size: small;
 }
