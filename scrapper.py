@@ -114,27 +114,21 @@ def writeToXml (_rooms :room):
     list = ET.Element("list")    
 
     for room in _rooms:
-        #roomName = ET.SubElement(list, room.name)
         roomName = ET.SubElement(list, "Room", {"Name":room.name})
         i=0
         for weekday in room.schedule:
             i_str = str(i)
-            #day = ET.SubElement(roomName, weekday)
             day = ET.SubElement(roomName, "WeekDay", {"Number":i_str})
             i = i+1
             j=0
             for hour in weekday:
                 j_str = str(j)
-                #timeSlot = ET.SubElement(day, j)
                 timeSlot = ET.SubElement(day, "TimeSlot", {"Index":j_str})
                 timeSlot.text = str(hour)
-                #occupy_value = ET.SubElement(timeSlot, hour)
-                #occupy_value = ET.SubElement(timeSlot, "Value", {"Occupied":str(hour)})
                 j = j+1
 
     tree = ET.ElementTree(list)
     ET.indent(tree, '   ')
-    # ET.dump(tree)
     tree.write("out.xml",encoding="UTF-8",xml_declaration=True)
 
 
@@ -144,7 +138,9 @@ def writeToXml (_rooms :room):
 #main
 driver = webdriver.Chrome()
 
+#names of rooms to be searched
 roomsNames = ["V1.23","V1.24","V1.25","V1.31","V1.32"]
+#array of class "room"
 rooms = []
 busy_hours = []
 
@@ -153,6 +149,7 @@ driver.maximize_window()
 for room_it in roomsNames:
     driver.get("https://fenix.tecnico.ulisboa.pt/publico/findSpaces.do?spaceID=2448131361047&method=viewSpace&_request_checksum_=1d2ff4b392cfcf539414fe8b7eb6e1f960d3d010")
     
+    #finds the room name in the page and navigates to its schedule to extract it
     xpath_aux = "//*[contains(text(), '{}')]".format(room_it)
     aux_element = driver.find_element(By.XPATH, xpath_aux)
     aux_element = aux_element.find_element(By.XPATH, "..")
@@ -166,8 +163,9 @@ for room_it in roomsNames:
     room_aux = room(str(room_it))
     rooms.append(room_aux)
 
+    #adds the busy hours to the schedule of the room
     for busy_hour in driver.find_elements(By.CLASS_NAME , "period-first-slot"):
         add_To_schedule(room_aux,busy_hour.get_attribute('headers'),busy_hour.get_attribute('title'))
 
-    #print_schedule(room_aux)
+    #write the xml output
     writeToXml(rooms)
