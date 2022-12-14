@@ -12,8 +12,4 @@ Introduz o dia e a hora que queres estudar e ele encontra salas de mestrado disp
 
 ~~Experimenta agora!~~
 
-🚧
-
-https://theportugueseman.github.io/Descobridor-de-Salas-Livres/
-
-🚧
+🚧 https://theportugueseman.github.io/Descobridor-de-Salas-Livres/ 🚧
