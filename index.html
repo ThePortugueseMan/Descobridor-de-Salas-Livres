@@ -330,7 +330,8 @@
         align-items: center;
     }
     img, #spacer {
-        width: 80px;
+        width: 70px;
+        margin-left: 10px;
     }
     h1{
         color: #2E3242;
@@ -363,7 +364,6 @@
     #schedule{
         text-align: center;
         display: flex;
-        overflow-x: scroll;
 }
     .timetable th {
         font-size: 11px;
@@ -408,6 +408,7 @@
     position:relative;
     padding:50px;
     margin:-5px;
+    cursor: pointer;
 }
     input[type='checkbox']:checked + label{
     background-color: #009DE0;
@@ -426,6 +427,7 @@
         background-color: #009DE0;
         font-weight: bold;
         border-color: transparent;
+        transition-duration: 0.3s;
 }
     button:hover{
         border-width: 2px;
@@ -434,6 +436,7 @@
         background-color: white;
         color: #009DE0;
         transition-duration: 0.3s;
+        cursor: pointer;
     }
 
     footer{
@@ -446,6 +449,12 @@
         background-color: white;
         text-align: center;
         font-size: small;
+}
+
+@media screen and (max-width: 600px) {
+    #schedule {
+        overflow-x: scroll;
+    }
 }
 </style>
 
